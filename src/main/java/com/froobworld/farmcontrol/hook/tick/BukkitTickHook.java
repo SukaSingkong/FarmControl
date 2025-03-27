@@ -44,7 +44,11 @@ public class BukkitTickHook implements TickHook {
     }
 
     private long getLastTickTime() {
-        return tickTimes == null ? 0 : tickTimes[(getCurrentTick() - 1) % 100];
+        int currentTick = getCurrentTick();
+        if (currentTick < 1) {
+            return 0;
+        }
+        return tickTimes == null ? 0 : tickTimes[(currentTick - 1) % tickTimes.length];
     }
 
     private static int getCurrentTick() {
