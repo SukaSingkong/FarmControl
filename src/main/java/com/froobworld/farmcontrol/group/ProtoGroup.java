@@ -45,7 +45,7 @@ public class ProtoGroup {
             return entity.getLocation().getBlockX() >> 4 == initialChunkX && entity.getLocation().getBlockZ() >> 4 == initialChunkZ;
         }
         int remainingMembers = members.size();
-        int minDistance = -1;
+        int minDistance = 0;
         for (SnapshotEntity member : members) {
             remainingMembers--;
             int distance = Math.max(
